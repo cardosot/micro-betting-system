@@ -1,0 +1,24 @@
+#Maven specific excludes
+target
+#Eclipse
+.project
+.classpath
+.settings
+.checkstyle
+#Intellij
+.idea
+*.iml
+#Logs and stuff
+*.log
+*.log.*
+logs
+test-output
+activemq-data
+#Visual Studio code preferences
+.vscode
+*.cl
+*.so
+*.ctx
+*.ops
+*.txt
+*.dylib

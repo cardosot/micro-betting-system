@@ -1,6 +1,0 @@
-com/tiagocardoso/mbs/bets/serializers/BetSerializer.class
-com/tiagocardoso/mbs/bets/configuration/KafkaProducerConfiguration.class
-com/tiagocardoso/mbs/bets/configuration/BetServiceConfiguration.class
-com/tiagocardoso/mbs/bets/converter/BetConverter.class
-com/tiagocardoso/mbs/bets/controller/BetsController.class
-com/tiagocardoso/mbs/bets/BetApplication.class
