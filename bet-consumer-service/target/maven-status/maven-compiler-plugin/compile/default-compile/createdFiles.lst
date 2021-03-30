@@ -1,0 +1,5 @@
+com/tiagocardoso/mbs/consumer/service/ConsumerService.class
+com/tiagocardoso/mbs/consumer/deserializer/BetDeserializer.class
+com/tiagocardoso/mbs/consumer/config/ConsumerAppConfig.class
+com/tiagocardoso/mbs/consumer/ConsumerApplication.class
+com/tiagocardoso/mbs/consumer/converter/BetConverter.class

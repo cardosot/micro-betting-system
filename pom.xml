@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.4.4</version>
+        <relativePath/>
+    </parent>
+
+    <groupId>com.tiagocardoso</groupId>
+    <artifactId>mbs</artifactId>
+    <version>0.1.0</version>
+
+    <packaging>pom</packaging>
+
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <domain.version>0.1.0</domain.version>
+        <datasources.version>0.2.0</datasources.version>
+        <account-service.version>0.1.0</account-service.version>
+        <guava.version>28.0-jre</guava.version>
+        <jakarta.validation-api.version>2.0.2</jakarta.validation-api.version>
+        <elasticsearch.version>7.11.2</elasticsearch.version>
+        <opentracing-elasticsearch7-client.version>0.1.6</opentracing-elasticsearch7-client.version>
+        <opentracing-kafka-spring.version>0.1.15</opentracing-kafka-spring.version>
+        <opentracing-spring-jaeger-starter.version>2.0.3</opentracing-spring-jaeger-starter.version>
+        <opentracing-spring-jaeger-web-starter.version>2.0.3</opentracing-spring-jaeger-web-starter.version>
+        <jackson-databind.version>2.10.3</jackson-databind.version>
+        <jaeger-client.version>1.5.0</jaeger-client.version>
+        <spring-boot.version>2.4.4</spring-boot.version>
+        <spring-kafka.version>2.6.7</spring-kafka.version>
+        <spring-aspects.version>5.3.5</spring-aspects.version>
+        <spring-data-elasticsearch.version>4.1.6</spring-data-elasticsearch.version>
+    </properties>
+
+    <modules>
+        <module>domain</module>
+        <module>datasources</module>
+        <module>account-service</module>
+        <module>bet-service</module>
+        <module>bet-consumer-service</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.tiagocardoso.mbs</groupId>
+                <artifactId>domain</artifactId>
+                <version>${domain.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.tiagocardoso.mbs</groupId>
+                <artifactId>datasources</artifactId>
+                <version>${datasources.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.tiagocardoso.mbs</groupId>
+                <artifactId>account-service</artifactId>
+                <version>${account-service.version}</version>
+            </dependency>
+
+            <!-- External dependencies -->
+            <!-- Spring -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>${spring-boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <scope>test</scope>
+                <version>${spring-boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter</artifactId>
+                <version>${spring-boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.kafka</groupId>
+                <artifactId>spring-kafka</artifactId>
+                <version>${spring-kafka.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-aspects</artifactId>
+                <version>${spring-aspects.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.data</groupId>
+                <artifactId>spring-data-elasticsearch</artifactId>
+                <version>${spring-data-elasticsearch.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-autoconfigure</artifactId>
+                <version>${spring-boot.version}</version>
+            </dependency>
+
+
+            <!-- Opentracing / Jaeger -->
+            <dependency>
+                <groupId>io.jaegertracing</groupId>
+                <artifactId>jaeger-client</artifactId>
+                <version>${jaeger-client.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.opentracing.contrib</groupId>
+                <artifactId>opentracing-kafka-spring</artifactId>
+                <version>${opentracing-kafka-spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.opentracing.contrib</groupId>
+                <artifactId>opentracing-elasticsearch7-client</artifactId>
+                <version>${opentracing-elasticsearch7-client.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.opentracing.contrib</groupId>
+                <artifactId>opentracing-spring-jaeger-starter</artifactId>
+                <version>${opentracing-spring-jaeger-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.opentracing.contrib</groupId>
+                <artifactId>opentracing-spring-jaeger-web-starter</artifactId>
+                <version>${opentracing-spring-jaeger-web-starter.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson-databind.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>jakarta.validation</groupId>
+                <artifactId>jakarta.validation-api</artifactId>
+                <version>${jakarta.validation-api.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.elasticsearch.client</groupId>
+                <artifactId>elasticsearch-rest-high-level-client</artifactId>
+                <version>${elasticsearch.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.elasticsearch</groupId>
+                <artifactId>elasticsearch</artifactId>
+                <version>${elasticsearch.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+</project>

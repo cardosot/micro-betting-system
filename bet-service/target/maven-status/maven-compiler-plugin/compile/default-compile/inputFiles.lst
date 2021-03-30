@@ -1,0 +1,6 @@
+/Users/cardosot/personal/sandbox/bet-service/src/main/java/com/tiagocardoso/mbs/bets/controller/BetsController.java
+/Users/cardosot/personal/sandbox/bet-service/src/main/java/com/tiagocardoso/mbs/bets/serializers/BetSerializer.java
+/Users/cardosot/personal/sandbox/bet-service/src/main/java/com/tiagocardoso/mbs/bets/BetApplication.java
+/Users/cardosot/personal/sandbox/bet-service/src/main/java/com/tiagocardoso/mbs/bets/converter/BetConverter.java
+/Users/cardosot/personal/sandbox/bet-service/src/main/java/com/tiagocardoso/mbs/bets/configuration/BetServiceConfiguration.java
+/Users/cardosot/personal/sandbox/bet-service/src/main/java/com/tiagocardoso/mbs/bets/configuration/KafkaProducerConfiguration.java

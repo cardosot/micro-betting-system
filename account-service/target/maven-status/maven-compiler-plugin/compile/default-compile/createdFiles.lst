@@ -1,0 +1,4 @@
+com/tiagocardoso/mbs/accounts/converter/AccountConverter.class
+com/tiagocardoso/mbs/accounts/controller/AccountsController.class
+com/tiagocardoso/mbs/accounts/configuration/AccountConfiguration.class
+com/tiagocardoso/mbs/accounts/AccountApplication.class

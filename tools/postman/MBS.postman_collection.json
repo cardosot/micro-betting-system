@@ -1,0 +1,257 @@
+{
+	"info": {
+		"_postman_id": "d377b051-d671-4ae5-9d03-fd407d2b8a87",
+		"name": "MBS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Accounts",
+			"item": [
+				{
+					"name": "getAllAccounts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:8082/api/v1/accounts",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"v1",
+								"accounts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createAccount",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\": \"cardoso\"\n}"
+						},
+						"url": {
+							"raw": "127.0.0.1:8082/api/v1/createAccount",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"v1",
+								"createAccount"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAccount",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:8082/api/v1/account?accountId=1617053572853",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"v1",
+								"account"
+							],
+							"query": [
+								{
+									"key": "accountId",
+									"value": "1617053572853"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "withdraw",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:8082/api/v1/withdraw?accountId=1617053572853&amount=10",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"v1",
+								"withdraw"
+							],
+							"query": [
+								{
+									"key": "accountId",
+									"value": "1617053572853"
+								},
+								{
+									"key": "amount",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deposit",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:8082/api/v1/deposit?accountId=1617053572853&amount=10",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"v1",
+								"deposit"
+							],
+							"query": [
+								{
+									"key": "accountId",
+									"value": "1617053572853"
+								},
+								{
+									"key": "amount",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Bets",
+			"item": [
+				{
+					"name": "getAllBets",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:8081/api/v1/bets",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"bets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getBetsFromUser",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:8081/api/v1/betsFromUser?accountId=1617053572853",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"betsFromUser"
+							],
+							"query": [
+								{
+									"key": "accountId",
+									"value": "1617053572853"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateBet",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"betType\": \"SINGLE\",\n    \"accountId\": 1617053572853,\n\t\"legs\": [\n        {\n            \"legNumber\": 1,\n            \"selection\": {\n                \"id\": \"1\",\n                \"marketId\": \"1234\",\n                \"eventId\": \"567\",\n                \"stake\": 11\n            }\n        }\n    ]\n}"
+						},
+						"url": {
+							"raw": "127.0.0.1:8081/api/v1/createBet",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"createBet"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

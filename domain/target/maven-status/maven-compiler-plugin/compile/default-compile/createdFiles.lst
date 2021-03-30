@@ -1,0 +1,8 @@
+com/tiagocardoso/mbs/domain/Leg.class
+com/tiagocardoso/mbs/domain/Bet.class
+com/tiagocardoso/mbs/domain/Selection.class
+com/tiagocardoso/mbs/domain/Result.class
+com/tiagocardoso/mbs/domain/BetType.class
+com/tiagocardoso/mbs/domain/Account.class
+com/tiagocardoso/mbs/domain/OperationResult$Result.class
+com/tiagocardoso/mbs/domain/OperationResult.class
