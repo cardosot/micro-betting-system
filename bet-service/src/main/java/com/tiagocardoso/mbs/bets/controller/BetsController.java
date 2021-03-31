@@ -1,6 +1,5 @@
 package com.tiagocardoso.mbs.bets.controller;
 
-import ch.qos.logback.core.encoder.EchoEncoder;
 import com.google.common.collect.Lists;
 import com.tiagocardoso.mbs.datasources.service.ElasticSearchService;
 import com.tiagocardoso.mbs.domain.Bet;
@@ -13,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
@@ -21,6 +21,9 @@ import javax.validation.Valid;
 import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
+
+import static com.tiagocardoso.mbs.domain.OperationResult.Result.FAILURE;
+import static com.tiagocardoso.mbs.domain.OperationResult.Result.SUCCESS;
 
 @RestController
 @RequestMapping("/api/v1")
@@ -93,32 +96,34 @@ public class BetsController {
         Span span = tracer.activeSpan();
 
         try {
-            OperationResult accountWithdrawResult = restTemplate.getForEntity(
-                    "http://localhost:8082/api/v1/withdraw?accountId=" + bet.getAccountId() + "&amount=" + totalSkate ,
-                    OperationResult.class,
-                    headers).getBody();
+            ResponseEntity<OperationResult> accountWithdrawResult = restTemplate
+                    .postForEntity(
+                            "http://localhost:8082/api/v1/withdraw?accountId=" + bet.getAccountId() + "&amount=" + totalSkate,
+                            null,
+                            OperationResult.class,
+                            headers);
 
-            if(accountWithdrawResult != null && accountWithdrawResult.getResult().equals(OperationResult.Result.FAILURE)) {
+            if(accountWithdrawResult.getBody() != null && accountWithdrawResult.getBody().getResult().equals(FAILURE)) {
                 LOGGER.error("operation=createBet, error='Account has no balance'");
                 span.setTag("error", true);
                 span.log("Account has no balance");
-                return new OperationResult(OperationResult.Result.FAILURE, "No balance");
+                return new OperationResult(FAILURE, "No balance");
             }
         } catch (Exception e) {
             LOGGER.error("operation=createBet, error={}", e.getMessage());
             span.setTag("error", true);
-            return new OperationResult(OperationResult.Result.FAILURE, e.getMessage());
+            return new OperationResult(FAILURE, e.getMessage());
         }
 
         try {
             ProducerRecord<String, Bet> betRecord = new ProducerRecord<>(topic, String.valueOf(bet.getBetId()), bet);
             kafkaTemplate.send(betRecord).get();
-            return new OperationResult(OperationResult.Result.SUCCESS, "Success");
+            return new OperationResult(SUCCESS, "Success");
         } catch (InterruptedException | ExecutionException e) {
             LOGGER.error("operation=createBet, error={}", e.getMessage());
             span.setTag("error", true);
             span.log(e.getMessage());
-            return new OperationResult(OperationResult.Result.FAILURE, e.getMessage());
+            return new OperationResult(FAILURE, e.getMessage());
         }
     }
 }

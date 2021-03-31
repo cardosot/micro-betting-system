@@ -23,7 +23,6 @@
         <dependency>
             <groupId>com.tiagocardoso.mbs</groupId>
             <artifactId>datasources</artifactId>
-            <scope>compile</scope>
         </dependency>
 
         <!-- External -->

@@ -71,7 +71,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "127.0.0.1:8082/api/v1/account?accountId=1617053572853",
+							"raw": "127.0.0.1:8082/api/v1/account?accountId=<ACCOUNT_ID>",
 							"host": [
 								"127",
 								"0",
@@ -87,7 +87,7 @@
 							"query": [
 								{
 									"key": "accountId",
-									"value": "1617053572853"
+									"value": "<ACCOUNT_ID>"
 								}
 							]
 						}
@@ -97,10 +97,10 @@
 				{
 					"name": "withdraw",
 					"request": {
-						"method": "GET",
+						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "127.0.0.1:8082/api/v1/withdraw?accountId=1617053572853&amount=10",
+							"raw": "127.0.0.1:8082/api/v1/withdraw?accountId=<ACCOUNT_ID>&amount=10",
 							"host": [
 								"127",
 								"0",
@@ -116,7 +116,7 @@
 							"query": [
 								{
 									"key": "accountId",
-									"value": "1617053572853"
+									"value": "<ACCOUNT_ID>"
 								},
 								{
 									"key": "amount",
@@ -130,10 +130,10 @@
 				{
 					"name": "deposit",
 					"request": {
-						"method": "GET",
+						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "127.0.0.1:8082/api/v1/deposit?accountId=1617053572853&amount=10",
+							"raw": "127.0.0.1:8082/api/v1/deposit?accountId=<ACCOUNT_ID>&amount=10",
 							"host": [
 								"127",
 								"0",
@@ -149,7 +149,7 @@
 							"query": [
 								{
 									"key": "accountId",
-									"value": "1617053572853"
+									"value": "<ACCOUNT_ID>"
 								},
 								{
 									"key": "amount",
@@ -194,7 +194,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "127.0.0.1:8081/api/v1/betsFromUser?accountId=1617053572853",
+							"raw": "127.0.0.1:8081/api/v1/betsFromUser?accountId=<ACCOUNT_ID>",
 							"host": [
 								"127",
 								"0",
@@ -210,7 +210,7 @@
 							"query": [
 								{
 									"key": "accountId",
-									"value": "1617053572853"
+									"value": "<ACCOUNT_ID>"
 								}
 							]
 						}
@@ -231,7 +231,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"betType\": \"SINGLE\",\n    \"accountId\": 1617053572853,\n\t\"legs\": [\n        {\n            \"legNumber\": 1,\n            \"selection\": {\n                \"id\": \"1\",\n                \"marketId\": \"1234\",\n                \"eventId\": \"567\",\n                \"stake\": 11\n            }\n        }\n    ]\n}"
+							"raw": "{\n    \"betType\": \"SINGLE\",\n    \"accountId\": <ACCOUNT_ID>,\n\t\"legs\": [\n        {\n            \"legNumber\": 1,\n            \"selection\": {\n                \"id\": \"1\",\n                \"marketId\": \"1234\",\n                \"eventId\": \"567\",\n                \"stake\": 11\n            }\n        }\n    ]\n}"
 						},
 						"url": {
 							"raw": "127.0.0.1:8081/api/v1/createBet",

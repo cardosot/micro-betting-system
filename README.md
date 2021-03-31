@@ -1,6 +1,6 @@
 # Micro Betting System
 
-Spring Boot microservices to exemplify Jaeger integration
+Spring Boot microservices to exemplify Jaeger integration on a betting system
 
 # Architecture
 
@@ -8,13 +8,7 @@ Spring Boot microservices to exemplify Jaeger integration
 
 # How to run
 
-## 1. Run Jaeger All-In-One
-
-```
-docker run -d --name jaeger -e COLLECTOR_ZIPKIN_HTTP_PORT=9411 -p 5775:5775/udp -p 6831:6831/udp -p 6832:6832/udp -p 5778:5778 -p 16686:16686 -p 14268:14268 -p 14250:14250 -p 9411:9411 jaegertracing/all-in-one:1.22`
-```
-
-## 2. Run Elastic, Kafka and Zookeeper
+## 1. Run Jaeger All-In-One, Elastic, Kafka and Zookeeper
 
 Deploy [docker-compose.yml](infra/docker/docker-compose.yml):
 
@@ -22,8 +16,10 @@ Deploy [docker-compose.yml](infra/docker/docker-compose.yml):
 docker-compose up
 ```
 
-## 3. Run AccountService, BetService and ConsumerService
+Jaeger UI is available at [http://127.0.0.1:16686/](http://127.0.0.1:16686/)
 
-## 4. Postman
+## 2. Run AccountService, BetService and ConsumerService
+
+## 3. Postman
 
 Postman collection available [here](tools/postman/MBS.postman_collection.json).

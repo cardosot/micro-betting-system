@@ -99,7 +99,7 @@ public class AccountsController {
      * @param accountId
      * @return the Account
      */
-    @GetMapping("/withdraw")
+    @PostMapping("/withdraw")
     public OperationResult withdraw(@RequestHeader HttpHeaders headers, String accountId, double amount) {
         LOGGER.info("operation=withDraw, accountId={}, amount={}", accountId, amount);
         try {
@@ -120,7 +120,7 @@ public class AccountsController {
      * @param accountId
      * @return the Account
      */
-    @GetMapping("/deposit")
+    @PostMapping("/deposit")
     public OperationResult deposit(@RequestHeader HttpHeaders headers, String accountId, double amount) {
         LOGGER.info("operation=deposit, accountId={}, amount={}", accountId, amount);
         try {
