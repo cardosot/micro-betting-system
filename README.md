@@ -1,6 +1,21 @@
 # Micro Betting System
 
-Spring Boot microservices to exemplify Jaeger integration on a betting system
+Spring Boot microservices to exemplify Jaeger integration on a very simple betting system.
+
+AccountService operations:
+ - createAccount(account)
+ - getAllAccounts
+ - getAccount(accountId)
+ - withdraw(accountId, amount)
+ - deposit(accountId, amount)
+
+BetService operations
+ - createBet(bet) - calls AccountService `withdraw` endpoint and in case of success publishes the Bet on Kafka `{kafka.topic}`
+ - getAllBets
+ - getBetsFromUser(accountId)
+
+BetConsumerService reads each Bet from Kafka `{kafka.topic}` and stores on ElasticSearch `{elastic.index}`.
+
 
 # Architecture
 
