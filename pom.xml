@@ -35,6 +35,7 @@
         <spring-kafka.version>2.6.7</spring-kafka.version>
         <spring-aspects.version>5.3.5</spring-aspects.version>
         <spring-data-elasticsearch.version>4.1.6</spring-data-elasticsearch.version>
+        <springdoc-openapi-ui.version>1.5.2</springdoc-openapi-ui.version>
     </properties>
 
     <modules>
@@ -154,6 +155,12 @@
                 <groupId>org.elasticsearch</groupId>
                 <artifactId>elasticsearch</artifactId>
                 <version>${elasticsearch.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-ui</artifactId>
+                <version>${springdoc-openapi-ui.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
